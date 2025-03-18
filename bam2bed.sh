@@ -13,7 +13,7 @@ conda install -y bedtools
 Output_file="$Output_dir/$(basename "$INPUT_BAM" | sed 's/\.bam$/.bed/')"
 bedtools bamtobed -i "$Input">$Output_file
 #Only chromosome 1
-Output_file_chr1="$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
+Output_file_chr1="$Output_dir/(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
 grep "^Chr1\s" $Output_file > $Output_file_chr1
 wc -l $Output_file_chr1>"bam2bed_number_of_rows.txt"
 #sed -i 's|\(GSM.*_chr1.bed\)|bam2bed_test_number3/\1|' bam2bed_test_number3/bam2bed_number_of_rows.txt
