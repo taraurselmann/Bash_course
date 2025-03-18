@@ -10,7 +10,7 @@ source $(dirname $(dirname $(which mamba)))/etc/profile.d/conda.sh
 #Bedtools
 conda install -y bedtools
 #Using bedtools
-Output_file="$Output_dir/$(basename "$INPUT_BAM" | sed 's/\.bam$/.bed/')"
+Output_file="$Output_dir/$(basename "$Input" | sed 's/\.bam$/.bed/')"
 bedtools bamtobed -i "$Input">$Output_file
 #Only chromosome 1
 Output_file_chr1="$Output_dir/(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
