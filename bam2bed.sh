@@ -15,7 +15,7 @@ bedtools bamtobed -i "$Input">$Output_file
 #Only chromosome 1
 Output_file_chr1="$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
 grep "^Chr1\s" $Output_file > $Output_file_chr1
-Other_name="$2/$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
+Other_name="$Output_file/$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
 mv $Output_file_chr1 $Other_name
 wc -l $Other_name>"bam2bed_number_of_rows.txt"
 echo -e "Completed by Tara Urselmann" 
