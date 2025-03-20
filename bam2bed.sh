@@ -1,5 +1,5 @@
 Input=$1
-Output_dir=$(realpath "$2")
+Output_dir=$2
 #Create output directory
 mkdir "$Output_dir"
 cd "$Output_dir"
