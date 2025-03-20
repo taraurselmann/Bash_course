@@ -1,7 +1,7 @@
 Input=$1
 Output_dir=$2
 #Create output directory
-mkdir "$Output_dir"
+mkdir -p "$Output_dir"
 cd "$Output_dir"
 #Access conda 
 conda create -y --name bam2bed
@@ -14,7 +14,7 @@ Output_file="$(basename "$Input" | sed 's/\.bam$/.bed/')"
 bedtools bamtobed -i "$Input">$Output_file
 #Only chromosome 1
 Output_file_chr1="$Output_dir/$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
-grep "^Chr1\s" $Output_file > $Output_file_chr1
+grep -E "^Chr1\s" $Output_file > $Output_file_chr1
 #Other_name="$Output_dir/$(basename "$Input" | sed 's/\.bam$/_chr1.bed/')"
 #mv $Output_file_chr1 $Other_name
 wc -l $Other_name>"bam2bed_number_of_rows.txt"
