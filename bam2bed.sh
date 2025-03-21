@@ -4,9 +4,9 @@ Output_dir=$2
 mkdir -p "$Output_dir"
 cd "$Output_dir"
 #Access conda 
+source $(dirname $(dirname $(which mamba)))/etc/profile.d/conda.sh
 conda create -y --name bam2bed
 conda activate bam2bed
-source $(dirname $(dirname $(which mamba)))/etc/profile.d/conda.sh
 #Bedtools
 conda install -y bedtools
 #Using bedtools
